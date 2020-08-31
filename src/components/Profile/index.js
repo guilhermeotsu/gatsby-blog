@@ -3,7 +3,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Avatar from './../Avatar'
+import Avatar from '@components/Avatar'
 
 // Usando Hooks
 const Profile = () => {

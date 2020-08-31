@@ -1,3 +1,9 @@
+const { join } = require('path')
+
+const paths = {
+  src: join(__dirname, 'src')
+}
+
 module.exports = {
   siteMetadata: {
     title: `Blog do pai`,
@@ -5,6 +11,7 @@ module.exports = {
     author: `@myblog`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -27,6 +34,14 @@ module.exports = {
         //icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": join(paths.src, 'components')
+        }
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
