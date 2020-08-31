@@ -38,8 +38,12 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@components": join(paths.src, 'components')
-        }
+          "@components": join(paths.src, 'components'),
+          "@styles": join(paths.src, 'styles')
+        },
+        extensions: [
+          "js",
+        ],
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
