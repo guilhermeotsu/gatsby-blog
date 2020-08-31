@@ -1,19 +1,15 @@
-'use strict'
+"use strict"
 
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 // Usando Hooks
 const Profile = () => {
   // Pegando os dados do GraphQL
   const {
-    site: { 
-      siteMetadata: { 
-        title, 
-        description, 
-        author 
-      } 
-    } 
+    site: {
+      siteMetadata: { title, description, author },
+    },
   } = useStaticQuery(
     graphql`
       query MySiteMetaData {
@@ -39,7 +35,7 @@ const Profile = () => {
 
 // Usando o componente do Gatsby para renderizar
 // const Profile = () => (
-//   <useStaticQuery 
+//   <useStaticQuery
 //     query={graphql`
 //       query MySiteMetaData {
 //         site {
