@@ -1,7 +1,8 @@
 const { join } = require('path')
 
 const paths = {
-  src: join(__dirname, 'src')
+  src: join(__dirname, 'src'),
+  images: join(__dirname, 'src', 'images')
 }
 
 module.exports = {
@@ -17,7 +18,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: paths.images,
       },
     },
     `gatsby-transformer-sharp`,

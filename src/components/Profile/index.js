@@ -1,9 +1,9 @@
-"use strict"
-
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Avatar from '@components/Avatar'
+
+import * as S from './styled'
 
 // Usando Hooks
 const Profile = () => {
@@ -27,12 +27,16 @@ const Profile = () => {
   )
 
   return (
-    <div className="Profile-wrapper">
-      <Avatar />
-      <h1>{title}</h1>
-      <h2>{author}</h2>
-      <p>{description}</p>
-    </div>
+    <S.ProfileWrapper>
+      <S.ProfileLink>
+        <Avatar />
+        <S.ProfileAuthor>
+          {author}
+          <S.ProfilePosition>{title}</S.ProfilePosition>
+        </S.ProfileAuthor>
+      </S.ProfileLink>
+      <S.ProfileDescription>{description}</S.ProfileDescription>
+    </S.ProfileWrapper>
   )
 }
 
