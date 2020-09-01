@@ -12,7 +12,7 @@ export const MenuBarWrapper = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-itens:center;
+  align-itens: center;
 }
 `
 
@@ -22,18 +22,18 @@ export const ListBar = styled.ul`
 `
 
 export const ItemBar = styled.li`
-  padding: 10px 0 10px 0;
+  padding: 0.5rem 0;
 `
 
 export const LinkBar = styled.a`
-    color: #8899a6;
-    text-decoration: none;
-    transition: color 0.5s;
+  color: #8899a6;
+  text-decoration: none;
+  transition: color 0.5s;
 
-    &:hover {
-      color: #1fa1f2;
-      cursor: pointer;
-    }
+  &:hover {
+    color: #1fa1f2;
+    cursor: pointer;
+  }
 `
 
 export const IconWrapper = styled.div`
