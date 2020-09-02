@@ -33,7 +33,7 @@ const GlobalStyles =
       display: block;
     }
     body {
-      line-height: 1;
+      line-height: 1; 
     }
     ol, ul {
       list-style: none;
@@ -52,6 +52,7 @@ const GlobalStyles =
     }
     * {
       box-sizing: border-box;
+      --postColor: #fff;
     }
     body {
       background: #16202c;

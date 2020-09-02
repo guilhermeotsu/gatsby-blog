@@ -3,7 +3,8 @@ const { join } = require('path')
 const paths = {
   src: join(__dirname, 'src'),
   images: join(__dirname, 'src', 'images'),
-  posts: join(__dirname, 'posts')
+  posts: join(__dirname, 'posts'),
+  imagesUploads: join(__dirname, 'static', 'assets', 'img')
 }
 
 module.exports = {
@@ -15,6 +16,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    // precisa ser o primeiro para funcionar com gatsby-remark-images
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `c`,
+        path: paths.imagesUploads,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -58,7 +67,22 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [],
+        plugins: [
+          {
+            resolve: "gatsby-remark-relative-images",
+            options: {
+              name: "uploads",
+            },
+          },
+          {
+            resolve: "gatsby-remark-images",
+            optioms: {
+              maxWidth: 960,
+              linkImageToOriginal: false,
+            },
+          },
+          `gatsby-remark-lazy-load`,
+        ],
       }
     }
   ],
