@@ -2,7 +2,8 @@ const { join } = require('path')
 
 const paths = {
   src: join(__dirname, 'src'),
-  images: join(__dirname, 'src', 'images')
+  images: join(__dirname, 'src', 'images'),
+  posts: join(__dirname, 'posts')
 }
 
 module.exports = {
@@ -19,6 +20,13 @@ module.exports = {
       options: {
         name: `images`,
         path: paths.images,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: paths.posts,
       },
     },
     `gatsby-transformer-sharp`,
@@ -46,9 +54,12 @@ module.exports = {
           "js",
         ],
       }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [],
+      }
     }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
