@@ -30,8 +30,33 @@ exports.createPages = ({ graphql, actions }) => {
       allMarkdownRemark {
         edges {
           node {
+            id
+            timeToRead
+            frontmatter {
+              background
+              category
+              date(formatString: "DD [de]  MMMM, YYYY", locale: "pt")
+              description
+              title
+            }
             fields {
               slug
+            }
+          }
+          next {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
@@ -40,13 +65,15 @@ exports.createPages = ({ graphql, actions }) => {
   `).then(result => {
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach(({ node }) => {
+    posts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
         component: join(__dirname, 'src', 'templates', 'blog-post.js'),
         // Passa dados que vao estar disponivel nas querys do graphql como variáveis
         context: {
-          slug: node.fields.slug
+          slug: node.fields.slug,
+          previousPost: next,
+          nextPost: previous
         }
       })
     })
