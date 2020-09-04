@@ -12,6 +12,7 @@ const postsQuery = `{
           date(formatString: "DD [de]  MMMM, YYYY", locale: "pt")
           description
           title
+          background
         }
         fields {
           slug
